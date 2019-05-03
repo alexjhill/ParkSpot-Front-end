@@ -1,11 +1,12 @@
 # ParkSpot-Front-end
 
 To run the Python-Flask app:  
-1. open command line at the "app" directory  
-2. install Flask  
+
+1. install Flask  
 ```
 $ pip install flask
 ```
+2. open command line at the "app" directory 
 3. run the app in dev mode:  
 ```
 $ export FLASK_ENV=development  
