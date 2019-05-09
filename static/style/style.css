@@ -1,5 +1,9 @@
-#map {
+
+html, body, #map {
     position: absolute;
-    width: 100vw;
-    height: 100vh;
+    height: 100%;
+    width: 100%;
 }
+
+.gm-ui-hover-effect {display: none !important;}
+/* .gm-style .gm-style-iw-t::after {display: none !important;} */

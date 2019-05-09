@@ -4,6 +4,10 @@ var infoWindow;
 var errorBox = document.getElementById("errorBox");
 
 function initMap() {
+
+    directionsService = new google.maps.DirectionsService();
+    directionsDisplay = new google.maps.DirectionsRenderer();
+
     var myStyles =[
         {
             featureType: "poi",
@@ -14,10 +18,11 @@ function initMap() {
         }, {
             featureType: "transit.station",
             stylers: [
-              { visibility: "off" }
+                { visibility: "off" }
             ]
         }
     ];
+
     // Draw map
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 51.509865, lng: -0.118092},
@@ -34,13 +39,18 @@ function initMap() {
     centerControlDiv.index = 1;
     map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(centerControlDiv);
 
-    // Get location
+    // Get user location
     navigator.geolocation.getCurrentPosition(success, error, options);
+
+
+    directionsDisplay.setMap(map);
+
 
     // Get spaces
     $.getJSON("static/data/spaces.json", function(json) {
         showSpaces(json);
     });
+
 }
 
 
@@ -57,21 +67,20 @@ function success(pos) {
         lat: pos.coords.latitude,
         lng: pos.coords.longitude
     };
-    console.log(userPos);
     map.setCenter(userPos);
     map.setZoom(16);
 
     var userMarker = new google.maps.Marker({
         position: userPos,
-        map: map
+        map: map,
+        icon: 'static/img/user-position.svg'
     });
 }
 
 // Location error callback
 function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
-    errorBox.childNodes[1].innerHTML = "<strong>Location error:</strong> " + err.message;
-    errorBox.className += "show";
+    errorBox.innerHTML = '<div class="mx-4 shadow-sm alert alert-danger alert-dismissible fade show" role="alert"><span><strong>Location error:</strong> ' + err.message + '</span><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'
 }
 
 function showSpaces(spaces) {
@@ -93,8 +102,37 @@ function addMarker(_id, lat, lng) {
         icon: 'static/img/car.svg'
     });
 
-    spaceMarker.addListener('click', function(){
+    spaceMarker.addListener('click', function() {
         infoWindow.open(map, spaceMarker);
-        infoWindow.setContent('<h1 class="text-center">' + _id + '</h1><button class="btn btn-primary">Navigate</button>');
+        infoWindow.setContent('<h1 class="text-center">' + _id + '</h1><button id="directionsbtn" onclick="calcRoute(' + userPos.lat + ', ' + userPos.lng + ', ' + coords.lat + ', ' + coords.lng + ')" class="btn btn-primary">Navigate</button>');
+    });
+
+}
+
+
+function calcRoute(startLat, startLng, endLat, endLng) {
+    var start = {
+        lat: startLat,
+        lng: startLng
+    }; var end = {
+        lat: endLat,
+        lng: endLng
+    };
+
+    console.log(start + ", " + end)
+    var request = {
+        origin: start,
+        destination: end,
+        travelMode: 'DRIVING'
+    }
+
+    directionsService.route(request, function (response, status) {
+        if (status == 'OK') {
+            infoWindow.close();
+            directionsDisplay.setOptions({
+                suppressMarkers: true
+            });
+            directionsDisplay.setDirections(response);
+        }
     });
 }
