@@ -7,6 +7,7 @@
 
     <title>{{ title }}</title>
 
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon/favicon.ico') }}">
 
@@ -20,9 +21,10 @@
 
 <body>
 
-
-
     <div id="map"></div>
+    <div class="navbar">
+      <h1 class="navbarTitle">{{ title }}</h1>
+    </div>
     <br>
 
     <div id="errorBox"></div>
