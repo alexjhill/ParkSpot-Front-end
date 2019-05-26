@@ -20,4 +20,35 @@ html, body, #map {
   text-transform: uppercase;
   margin: 0px 1vw;
   font-size: 3.5vh;
+  flex-grow: 2;
+}
+.searchBoxContainer{
+  flex-grow: 1;
+  display: flex;
+}
+#searchBox{
+  background-color: #3280C2;
+  font-family: Lato, Helvetica New, Arial, sans-serif;
+  font-size: 2vh;
+  color: #FFFFFF;
+  border: none;
+  border-bottom: 1px solid #FFFFFF;
+  margin-right: 2vw;
+  width: 100%;
+}
+:focus {
+ outline: 0;
+ border-bottom: 2px solid #FFFFFF;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #FFFFFF;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #FFFFFF;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #FFFFFF;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #FFFFFF;
 }
