@@ -24,7 +24,8 @@
     <div class="navbar">
       <h1 class="navbarTitle">{{ title }}</h1>
       <div class="searchBoxContainer">
-        <input id="searchBox" type="text" placeholder="Enter a location">
+        <label for="searchBox">Where do you wanna park?</label>
+        <input id="searchBox" type="text" placeholder="" onClick="this.setSelectionRange(0, this.value.length)">
       </div>
     </div>
     <br>

@@ -22,12 +22,26 @@ function initAutocomplete() {
     // If the place has a geometry, then present it on a map.
     if (place.geometry.viewport) {
       map.fitBounds(place.geometry.viewport);
+      $("input").blur();
     } else {
       map.setCenter(place.geometry.location);
       map.setZoom(16);
+      $("input").blur();
     }
 //    marker.setPosition(place.geometry.location);
 //    marker.setVisible(true);
 
+  });
+
+  //hide lable when input field is on focus
+  $("input").focus(function () {
+    $(this).prev("label").hide();
+  });
+  
+  //show label if input field has no value
+  $("input").blur(function () {
+    if(!$.trim(this.value).length) {
+      $(this).prev("label").show();
+     }
   });
 }

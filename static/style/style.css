@@ -36,19 +36,14 @@ html, body, #map {
   margin-right: 2vw;
   width: 100%;
 }
-:focus {
+#searchBox:focus {
  outline: 0;
  border-bottom: 2px solid #FFFFFF;
 }
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+label {
+  position: absolute;
+  margin-left: 6px;
   color: #FFFFFF;
-}
-::-moz-placeholder { /* Firefox 19+ */
-  color: #FFFFFF;
-}
-:-ms-input-placeholder { /* IE 10+ */
-  color: #FFFFFF;
-}
-:-moz-placeholder { /* Firefox 18- */
-  color: #FFFFFF;
+  font-family: Lato, Helvetica New, Arial, sans-serif;
+  font-style: italic;
 }
