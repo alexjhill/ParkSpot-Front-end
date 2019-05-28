@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import pymysql.cursors, json
+import pymysql.cursors, json, ast
 
 app = Flask(__name__)
 
@@ -31,21 +31,25 @@ title = "Parkspot 3.0"
 @app.route("/", methods = ['GET', 'POST'])
 def homeRoute():
     if request.method == "POST":
-        userPos = request.form.to_dict()
 
-        range = 0.03
+        location = request.form.to_dict()
 
-        lowerLat = float(userPos['lat']) - range
-        upperLat = float(userPos['lat']) + range
-        lowerLng = float(userPos['lng']) - range
-        upperLng = float(userPos['lng']) + range
+        # Ranges for generating parking spots
+        latRange = 0.003
+        longRange = latRange * 3
 
+        lowerLat = float(location['lat']) - latRange
+        upperLat = float(location['lat']) + latRange
+        lowerLng = float(location['lng']) - longRange
+        upperLng = float(location['lng']) + longRange
+
+        # Spot query
         spots = dbExecute(query = "SELECT * FROM Parkingspots WHERE coords_lat > %s AND coords_lat < %s AND coords_long > %s AND coords_long < %s", lowerLat = lowerLat, upperLat = upperLat, lowerLng = lowerLng, upperLng = upperLng)
 
-        # spots = dbExecute(query = "SELECT * FROM Parkingspots")
-
+        # Convert result to JSON
         spots = json.dumps(spots)
 
+        # Return result
         return spots
 
 

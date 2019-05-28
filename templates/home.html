@@ -20,21 +20,16 @@
 </head>
 
 <body>
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 446770a433dd8fd3f05b3c1b6f91c4591653aac2
-    <div id="map"></div>
-    <div class="navbar">
-      <h1 class="navbarTitle">{{ title }}</h1>
-      <div class="searchBoxContainer">
-        <label for="searchBox">Where do you wanna park?</label>
-        <input id="searchBox" type="text" placeholder="" onClick="this.setSelectionRange(0, this.value.length)">
-      </div>
+    <div class="navbar shadow-sm">
+        <h1 class="navbarTitle">{{ title }}</h1>
+        <div class="searchBoxContainer">
+            <label for="searchBox">Where do you wanna park?</label>
+            <input id="searchBox" type="text" placeholder="" onClick="this.setSelectionRange(0, this.value.length)">
+        </div>
     </div>
+    <div id="map"></div>
     <br>
-
     <div id="errorBox"></div>
 
 
@@ -49,12 +44,12 @@
     <!-- Maps & location -->
     <script src="{{ url_for('static', filename='js/map.js') }}" type="text/javascript"></script>
     <script src="{{ url_for('static', filename='js/location.js') }}" type="text/javascript"></script>
-    <script src="{{ url_for('static', filename='js/spaces.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/spots.js') }}" type="text/javascript"></script>
     <script src="{{ url_for('static', filename='js/routes.js') }}" type="text/javascript"></script>
     <script src="{{ url_for('static', filename='js/ui-elements.js') }}" type="text/javascript"></script>
     <script src="{{ url_for('static', filename='js/search.js') }}" type="text/javascript"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz1cs8wQn_7fCssrRpKe-_tXFRxZ7YXTc&libraries=places&callback=initMap"
-         async defer></script>
+    async defer></script>
 
 </body>
 </html>

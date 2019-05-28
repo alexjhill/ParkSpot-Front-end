@@ -14,21 +14,13 @@ function success(pos) {
     userPos = {
         lat: pos.coords.latitude,
         lng: pos.coords.longitude
+
+        // lat: 52.370855,
+        // lng: 4.897710
     };
-    $.ajax({
-        type : 'POST',
-        url : "/",
-        data : userPos,
-        success: function(response) {
-            var spots = JSON.parse(response);
-            console.log(spots);
-            showSpaces(spots);
-        },
-        error: function(xhr) {
-            console.warn("ERROR: " + xhr);
-            errorBox.innerHTML = '<div class="mx-4 shadow-sm alert alert-danger alert-dismissible fade show" role="alert"><span><strong>Location error:</strong> ' + xhr + '</span><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'
-        }
-    });
+
+    getSpots(userPos);
+
     map.setCenter(userPos);
     map.setZoom(16);
     userMarker.setPosition(userPos);
