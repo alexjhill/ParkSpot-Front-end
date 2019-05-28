@@ -1,10 +1,11 @@
 var infoWindow;
 
-// Create each space markers from spaces data
-function showSpaces(spaces) {
+// Create each spot markers from spaces data
+function showSpaces(spots) {
     infoWindow = new google.maps.InfoWindow({})
-    jQuery.each(spaces, function(i, space) {
-        addMarker(space._id, space.lat, space.lng);
+    jQuery.each(spots, function(i, spot) {
+        console.log("Spot: " + spot);
+        addMarker(spot.pi_id, spot.coords_lat, spot.coords_long);
     });
 }
 

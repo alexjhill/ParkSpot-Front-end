@@ -51,10 +51,4 @@ function initMap() {
     // Directions setup
     directionsDisplay.setMap(map);
 
-
-    // Get spaces
-    $.getJSON("static/data/spaces.json", function(json) {
-        showSpaces(json);
-    });
-
 }
