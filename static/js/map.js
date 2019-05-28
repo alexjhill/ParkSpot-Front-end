@@ -2,7 +2,6 @@ var map;
 var errorBox = document.getElementById("errorBox");
 
 function initMap() {
-
     // Declare directions service
     directionsService = new google.maps.DirectionsService();
     directionsDisplay = new google.maps.DirectionsRenderer();
@@ -51,4 +50,6 @@ function initMap() {
     // Directions setup
     directionsDisplay.setMap(map);
 
+
+    initAutocomplete();
 }
