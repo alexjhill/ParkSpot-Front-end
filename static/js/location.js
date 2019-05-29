@@ -12,11 +12,11 @@ var options = {
 // Location success callback
 function success(pos) {
     userPos = {
-        // lat: pos.coords.latitude,
-        // lng: pos.coords.longitude
+        lat: pos.coords.latitude,
+        lng: pos.coords.longitude
 
-        lat: 52.370855,
-        lng: 4.897710
+        // lat: 52.370855,
+        // lng: 4.897710
     };
 
     getSpots(userPos);
