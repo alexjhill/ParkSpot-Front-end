@@ -8,10 +8,10 @@ app = Flask(__name__)
 
 def dbExecute(**kwargs):
     conn = pymysql.connect (
-        host='localhost',
-        user='root',
-        password='Password',
-        db='Parkspot',
+        host='oege.ie.hva.nl',
+        user='hofmank001',
+        password='fG5+pBPz$OJodq',
+        db='zhofmank001',
         charset='utf8mb4',
         cursorclass=pymysql.cursors.DictCursor
     )
@@ -44,7 +44,7 @@ def homeRoute():
         upperLng = float(location['lng']) + longRange
 
         # Spot query
-        spots = dbExecute(query = "SELECT * FROM Parkingspots WHERE coords_lat > %s AND coords_lat < %s AND coords_long > %s AND coords_long < %s", lowerLat = lowerLat, upperLat = upperLat, lowerLng = lowerLng, upperLng = upperLng)
+        spots = dbExecute(query = "SELECT * FROM Parkingspots_dummy WHERE coords_lat > %s AND coords_lat < %s AND coords_long > %s AND coords_long < %s", lowerLat = lowerLat, upperLat = upperLat, lowerLng = lowerLng, upperLng = upperLng)
 
         # Convert result to JSON
         spots = json.dumps(spots)
