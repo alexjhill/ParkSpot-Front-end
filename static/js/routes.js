@@ -27,4 +27,18 @@ function calcRoute(startLat, startLng, endLat, endLng) {
             directionsDisplay.setDirections(response);
         }
     });
+
+     // Create Button to close navigation
+     var button = document.createElement('button');
+     button.id = 'closeBtn'
+     button.innerHTML = 'Close Navigation';
+     map.controls[google.maps.ControlPosition.RIGHT_TOP].push(button);
+
+     // end navigation and go to current location by button click
+     button.addEventListener ("click", function() {
+       directionsDisplay.setMap(null);
+       navigator.geolocation.getCurrentPosition(success, error, options);
+       var button = document.getElementById('closeBtn');
+       button.parentNode.removeChild(button);
+     });
 }
