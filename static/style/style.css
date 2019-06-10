@@ -8,10 +8,8 @@ html, body {
     width: 100%;
     bottom: 0;
 }
-
 .gm-ui-hover-effect {display: none !important;}
 /* .gm-style .gm-style-iw-t::after {display: none !important;} */
-
 .navbar{
   background-color: #3280C2;
   width: 100%;
@@ -53,6 +51,17 @@ label {
   font-family: Lato, Helvetica New, Arial, sans-serif;
   font-style: italic;
 }
+#closeBtn{
+  background-color: #FFFFFF;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+  cursor: pointer;
+  text-align: center;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding: 5px;
+  font-size: 2vh;
+}
 /*style for mobile devices with max-width of 550px*/
 @media only screen and (max-width: 550px) {
   #map {
@@ -92,6 +101,17 @@ label {
     font-family: Lato, Helvetica New, Arial, sans-serif;
     font-style: italic;
     font-size: 2.5vh;
+  }
+  #closeBtn{
+    background-color: #FFFFFF;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+    cursor: pointer;
+    text-align: center;
+    margin-right: 10px;
+    margin-top: 7vh;
+    padding: 5px;
+    font-size: 2vh;
   }
 }
 
