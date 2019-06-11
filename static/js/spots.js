@@ -47,4 +47,10 @@ function addMarker(_id, lat, lng) {
         infoWindow.setContent('<h1 class="text-center">' + _id + '</h1><button id="directionsbtn" onclick="calcRoute(' + userPos.lat + ', ' + userPos.lng + ', ' + coords.lat + ', ' + coords.lng + ')" class="btn btn-primary">Navigate</button>');
     });
 
+    // Close infoWindow on clicking the map
+    google.maps.event.addListener(map, 'click', function(event) {
+      infoWindow.close();
+    });
+
+
 }
