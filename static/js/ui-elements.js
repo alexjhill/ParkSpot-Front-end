@@ -25,3 +25,37 @@ function CenterControl(controlDiv, map) {
         navigator.geolocation.getCurrentPosition(success, error, options);
     });
 }
+
+
+// Refresh spots button
+function RefreshSpotsControl(controlDiv, map) {
+    // Set CSS for the control border.
+    var controlUI = document.createElement('div');
+    controlUI.style.backgroundColor = '#fff';
+    controlUI.style.border = '2px solid #fff';
+    controlUI.style.borderRadius = '3px';
+    controlUI.style.boxShadow = 'rgba(0, 0, 0, 0.3) 0px 1px 4px -1px';
+    controlUI.style.cursor = 'pointer';
+    controlUI.style.textAlign = 'center';
+    controlUI.style.marginBottom = '22px';
+    controlUI.title = 'Click to search this area';
+    controlDiv.appendChild(controlUI);
+
+    // Set CSS for the control interior.
+    var controlText = document.createElement('div');
+    controlText.style.color = '#4285F4';
+    controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
+    controlText.style.fontSize = '14px';
+    controlText.style.lineHeight = '38px';
+    controlText.style.paddingLeft = '10px';
+    controlText.style.paddingRight = '10px';
+    controlText.innerHTML = 'SEARCH THIS AREA';
+    controlUI.appendChild(controlText);
+
+    // Click event for refresh spots button
+    controlUI.addEventListener('click', function() {
+        var center = map.getCenter();
+        var location = {lat: center.lat(), lng: center.lng()}
+        getSpots(location);
+    });
+}

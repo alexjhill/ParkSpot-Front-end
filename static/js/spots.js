@@ -1,6 +1,7 @@
 var infoWindow;
 var spotMarkers = [];
 
+// AJAX request for parking spots based on passed location
 function getSpots(location) {
     $.ajax({
         type : 'POST',
@@ -15,6 +16,7 @@ function getSpots(location) {
             errorBox.innerHTML = '<div class="mx-4 shadow-sm alert alert-danger alert-dismissible fade show" role="alert"><span><strong>Location error:</strong> ' + xhr + '</span><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'
         }
     });
+    map.controls[google.maps.ControlPosition.BOTTOM].clear();
 }
 
 // Create each spot markers from spot data

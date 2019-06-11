@@ -5,6 +5,12 @@ app = Flask(__name__)
 
 
 
+# Get map move event
+# Ajax request for data with new map position
+# Search database for matching data
+# Return data to front end
+# Render spots on map
+
 
 def dbExecute(**kwargs):
     conn = pymysql.connect (

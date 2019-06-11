@@ -2,8 +2,6 @@ var map;
 var errorBox = document.getElementById("errorBox");
 
 function initMap() {
-
-
     // Declare directions service
     directionsService = new google.maps.DirectionsService();
     directionsDisplay = new google.maps.DirectionsRenderer();
@@ -45,6 +43,9 @@ function initMap() {
         map: map,
         icon: 'static/img/user-position.svg'
     });
+    searchMarker = new google.maps.Marker({
+        map: map
+    });
 
     // Get user location
     navigator.geolocation.getCurrentPosition(success, error, options);
@@ -52,6 +53,21 @@ function initMap() {
     // Directions setup
     directionsDisplay.setMap(map);
 
-
+    // Search box init
     initAutocomplete();
+
+
+    // Draw refresh locations button
+    var refreshSpotsDiv = document.createElement('div');
+    refreshSpotsDiv.setAttribute("id", "refreshSpots");
+    var refreshSpots = new RefreshSpotsControl(refreshSpotsDiv, map);
+    refreshSpotsDiv.index = 1;
+    
+    // Map drag event
+    google.maps.event.addListener(map, 'dragend', function() {
+        if (map.controls[google.maps.ControlPosition.BOTTOM].length === 0) {
+            map.controls[google.maps.ControlPosition.BOTTOM].push(refreshSpotsDiv);
+        }
+        return
+    });
 }

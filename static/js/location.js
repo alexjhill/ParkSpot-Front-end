@@ -19,11 +19,11 @@ function success(pos) {
         // lng: 4.897710
     };
 
-    getSpots(userPos);
-
     map.setCenter(userPos);
     map.setZoom(16);
     userMarker.setPosition(userPos);
+
+    getSpots(userPos);
 }
 
 // Location error callback
