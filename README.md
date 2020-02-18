@@ -6,7 +6,7 @@ For the iteration I participated in, we used remote Raspberry PI devices, runnin
 
 Instructions for the running the application can be found below, however, the Google Maps API key has expired and currently the application uses dummy-data as the rest of the system has been taken offline after the completion of the project.
 
-![Parkspot interface](https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Filiketowastemytime.com%2Fsites%2Fdefault%2Ffiles%2Fbest-gifs-pt6-nonono-cat.gif)
+![Parkspot interface](https://www.alexhill.io/img/parkspot.gif)
 
 * Python
 * Flask
