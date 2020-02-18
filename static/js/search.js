@@ -32,7 +32,7 @@ function initAutocomplete() {
 
     });
 
-    //hide lable when input field is on focus
+    //hide label when input field is on focus
     $("input").focus(function () {
         $(this).prev("label").hide();
     });

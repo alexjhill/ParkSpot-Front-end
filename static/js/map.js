@@ -62,8 +62,8 @@ function initMap() {
     refreshSpotsDiv.setAttribute("id", "refreshSpots");
     var refreshSpots = new RefreshSpotsControl(refreshSpotsDiv, map);
     refreshSpotsDiv.index = 1;
-    
-    // Map drag event
+
+    // Map drag event to display "Refresh spots" button
     google.maps.event.addListener(map, 'dragend', function() {
         if (map.controls[google.maps.ControlPosition.BOTTOM].length === 0) {
             map.controls[google.maps.ControlPosition.BOTTOM].push(refreshSpotsDiv);
