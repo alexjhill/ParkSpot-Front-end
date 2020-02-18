@@ -4,7 +4,9 @@ Parkspot is a multi-year design and development challenge for students in new-me
 
 For the iteration I participated in, we used remote Raspberry PI devices, running computer vision software, to check for the availability of parking spaces. This data was then be sent to a web server via the [LoRa network](https://lora-alliance.org/) and the [Things Network](https://www.thethingsnetwork.org/), before being displayed to users in a web interface. I worked on the web server which was developed with Python-Flask and Nginx and the front-end interface which used Google Maps APIs.
 
-Instructions for the running the application can be found below, however, currently the application uses dummy-data as the rest of the system has been taken offline after the completion of the project.
+Instructions for the running the application can be found below, however, the Google Maps API key has expired and currently the application uses dummy-data as the rest of the system has been taken offline after the completion of the project.
+
+![Parkspot interface](https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Filiketowastemytime.com%2Fsites%2Fdefault%2Ffiles%2Fbest-gifs-pt6-nonono-cat.gif)
 
 * Python
 * Flask
